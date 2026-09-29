@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tiền thực đơn</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+
+        .menu-wrapper {
+            background-color: #ccff00;
+            border: 2px solid #336600;
+            padding: 10px 15px;
+            width: 420px;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border: 1px solid #7ba5d1;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .menu-col {
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #7ba5d1;
+        }
+
+        .menu-col:last-child {
+            border-right: none;
+        }
+
+        .col-header {
+            background-color: #ccff00;
+            border-bottom: 1px solid #7ba5d1;
+            padding: 6px 4px;
+            text-align: center;
+            font-weight: bold;
+            color: #0000cc;
+            font-size: 14px;
+        }
+
+        select {
+            width: 100%;
+            height: 140px;
+            border: none;
+            outline: none;
+            padding: 4px;
+            font-size: 13px;
+        }
+
+        .col-time {
+            background-color: #ccff00;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .col-time label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="button"] {
+            padding: 3px 16px;
+            border-radius: 12px;
+            border: 1px solid #7ba5d1;
+            background: linear-gradient(to bottom, #ffffff, #d9e8fb);
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="button"]:hover {
+            background: #c7dcf7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #99ffff;
+            border: 2px solid #000080;
+        }
+
+        th, td {
+            border: 1px solid #000080;
+            padding: 5px 8px;
+            font-size: 14px;
+        }
+
+        th {
+            color: #0000cc;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .td-left {
+            width: 55%;
+            font-weight: bold;
+        }
+
+        .td-right {
+            width: 45%;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-wrapper">
+        <div class="menu-title">THỰC ĐƠN</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="col-header">Thức ăn</div>
+                <select id="thucAn" multiple size="7">
+                    <option value="20000">Bún bò</option>
+                    <option value="18000">Hủ tiếu</option>
+                    <option value="17000">Bánh canh</option>
+                    <option value="19000">Phở bò</option>
+                    <option value="15000">Nui</option>
+                    <option value="12000">Bánh mì thịt</option>
+                    <option value="15000">Bánh cuốn</option>
+                </select>
+            </div>
+
+            <div class="menu-col">
+                <div class="col-header">Nước uống</div>
+                <select id="nuocUong" multiple size="7">
+                    <option value="12000">Cà phê đá</option>
+                    <option value="15000">Cà phê sữa</option>
+                    <option value="13000">Chanh dây</option>
+                    <option value="12000">Chanh muối</option>
+                    <option value="14000">Xí muội</option>
+                    <option value="13000">Sữa tươi</option>
+                    <option value="17000">Cam vắt</option>
+                </select>
+            </div>
+
+            <div class="menu-col">
+                <div class="col-header">Thời điểm</div>
+                <div class="col-time">
+                    <label>
+                        <input type="radio" name="thoiDiem" value="ngay" checked>
+                        Ban ngày
+                    </label>
+                    <label>
+                        <input type="radio" name="thoiDiem" value="dem">
+                        Ban đêm
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <input type="button" value="Tính tiền" onclick="tinhTien()">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Các món đã dùng</th>
+                    <th>Tiền</th>
+                </tr>
+            </thead>
+            <tbody id="billBody"></tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td>Tổng tiền</td>
+                    <td id="tongTien">0 đồng</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="6651071004_JAVASCRIPT_cau25.js"></script>
+</body>
+</html>

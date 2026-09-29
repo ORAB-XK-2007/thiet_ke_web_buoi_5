@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tiền lương</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: #ffcc99; 
+            border: 2px solid #000080; 
+            width: 380px;
+        }
+
+        td {
+            border: 1px solid #000080;
+            padding: 4px 8px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .col-label {
+            width: 40%;
+        }
+
+        .col-input {
+            width: 60%;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 3px 5px;
+            border: 1px solid #7a7a7a;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #luongCoBan, #luongThang {
+            width: 90%;
+        }
+
+        #heSoLuong {
+            width: 70px;
+        }
+
+        .btn-row {
+            text-align: center;
+            padding: 6px 0;
+        }
+
+        input[type="button"] {
+            padding: 4px 18px;
+            border-radius: 12px;
+            border: 1px solid #7ba5d1;
+            background: linear-gradient(to bottom, #ffffff, #d9e8fb);
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="button"]:hover {
+            background: #c7dcf7;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="salaryForm">
+        <table>
+            <tr>
+                <td class="col-label">Lương</td>
+                <td class="col-input">
+                    <input type="number" id="luongCoBan" value="1000000">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-label">Hệ số lương</td>
+                <td class="col-input">
+                    <input type="number" id="heSoLuong" step="0.1" value="3.2">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="btn-row">
+                    <input type="button" value="Tính lương tháng" onclick="tinhLuongThang()">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-label">Lương tháng</td>
+                <td class="col-input">
+                    <input type="text" id="luongThang" readonly>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="6651071004_JAVASCRIPT_cau23.js"></script>
+</body>
+</html> 
